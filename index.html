@@ -8,10 +8,12 @@
 </head>
 <body>
     <header>
-        <img src="Assets/image/USN.jpg" alt="Logo Sorbonne Nouvelle">
+        <img src="http://www.univ-paris3.fr/medias/photo/sorbonne-nouvelle-devise-trapezes-bleu_1600957023550.jpg?INLINE=FALSE" alt="Logo Sorbonne Nouvelle">
     </header>
+
     <h1>Paolo ABI ATMEH</h1>
     <h2>Master 1 de Science du Langage</h2>
+
     <h3>Mes cinq dernières lectures</h3>
     <ol>
         <li>Le Baron Perché d'Italo Calvino</li>
@@ -20,8 +22,10 @@
         <li>Les Liaisons Dangereuses de Choderlos de Laclos</li>
         <li>Hokusaï, le fou de dessin d'Henri-Alexis Baatsch</li>
     </ol>
+
     <h3>Lien vers le site de la Sorbonne Nouvelle</h3>
     <a href="http://www.univ-paris3.fr/">Site de l'université Sorbonne Nouvelle</a>
+
     <h3>Partie enseignement de mon CV sur les trois dernières années</h3>
     <table>
         <thead>
@@ -45,5 +49,25 @@
             </tr>
         </tbody>
     </table>
+
+    <h3>Interactions</h3>
+    <button id="ask-name">Comment vous appelez-vous ?</button>
+    <button id="show-help">Afficher l'aide</button>
+
+    <h3>Segmentation de texte</h3>
+    <textarea id="text-input" rows="6" cols="60" placeholder="Entrez votre texte ici..."></textarea><br>
+    <button onclick="segmenterTexte()">Segmenter avec des virgules</button>
+    <p>Résultat :</p>
+    <p id="resultat-segmentation"></p>
+
+    <script src="Assets/js/script.js"></script>
+    <script>
+        function segmenterTexte() {
+            const input = document.getElementById("text-input").value;
+            const tokens = input.trim().split(/\s+/);
+            const resultat = tokens.join(", ");
+            document.getElementById("resultat-segmentation").textContent = resultat;
+        }
+    </script>
 </body>
 </html>
