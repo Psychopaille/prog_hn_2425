@@ -13,6 +13,10 @@ header img {
     width: 250px;
     height: auto;
 }
+h1 img {
+    width: 250px;
+    height: auto;
+}
 h1 {
     color: #002147;
 }
@@ -62,25 +66,49 @@ h3 {
 }
 button {
     display: inline-block;
-    margin-top: 10px;
+    margin: 10px 5px;
     padding: 10px 20px;
     background-color: #002147;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }
 button:hover {
     background-color: #004080;
 }
-button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
+#resultat-segmentation {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px auto;
+    white-space: pre-wrap;
+    background-color: #f9f9f9;
+    font-family: monospace;
+    min-height: 60px;
+    max-width: 80%;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+#tableau-frequence {
+    margin: 30px auto;
+    max-width: 80%;
+}
+#table-freq {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#table-freq th, #table-freq td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+#table-freq th {
     background-color: #002147;
     color: white;
-    text-decoration: none;
-    border-radius: 5px;
 }
-button:hover {
-    background-color: #004080;
+#table-freq tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
