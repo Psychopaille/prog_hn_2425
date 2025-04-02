@@ -10,8 +10,10 @@
     <header>
         <img src="Assets/image/USN.jpg" alt="USN.jpg">
     </header>
-
-    <h1>Paolo ABI ATMEH</h1>
+    <h1>
+        <img src="Assets/image/paolo.jpg" alt="Photo Personelle"><br>
+        Paolo ABI ATMEH
+    </h1>
     <h2>Master 1 de Science du Langage</h2>
 
     <h3>Mes cinq dernières lectures</h3>
@@ -50,24 +52,27 @@
         </tbody>
     </table>
 
-    <h3>Interactions</h3>
+    <h2>Interactions</h2>
     <button id="ask-name">Comment vous appelez-vous ?</button>
     <button id="show-help">Afficher l'aide</button>
 
-    <h3>Segmentation de texte</h3>
-    <textarea id="text-input" rows="6" cols="60" placeholder="Entrez votre texte ici..."></textarea><br>
-    <button onclick="segmenterTexte()">Segmenter avec des virgules</button>
+    <h2>Segmentation de texte</h2>
+    <textarea id="text-input" rows="6" cols="60" placeholder="Entrez votre texte à segmenter ici. Vous pouvez toutefois vous servir du texte ci-dessous s'il vous est plus facile ainsi."></textarea><br>
+    <h4>Exemple de Texte à utiliser : Extrait du Chapitre III du livre intitulé "Histoire du Liban" de Xavier Baron</h4>
+    <h5>Débarrassée de la présence d'un émir à la tête de la Montagne libanaise, la Porte décrète l'administration directe et nomme gouverneur un officier croate, Umar Pacha. L'objectif du sultan est de ramener la Montagne libanaise à un statut de province ordinaire de l'Empire et d'en finir avec le régime d'autonomie. Usant de méthodes autoritaires, le nouveau gouverneur se fait rapidement des ennemis de toutes parts: les chrétiens à qui il veut imposer de nouveaux impôts, et les druzes dont il arrête les principaux chefs. Les ambassadeurs européens à Istanbul effectuent alors une démarche auprès de la Porte pour dénoncer les comportements d'Umar Pacha, puis demandent son rappel à la fin de l'été 1842. Les communautés de la Montagne ont dès lors, et de plus en plus nettement, leurs Etats protecteurs atti-trés: au grand déplaisir de l'Autriche, la France a renoué d'étroites relations avec les maronites rassemblés autour de leur patriarche ; la Russie s'impose comme protectrice des orthodoxes ; l'Angleterre, dépitée de ne pas avoir pu amener les maronites à s'éloigner de la France, a développé une relation étroite avec les druzes ; les sunnites sont les fidèles sujets du sultan. La Montagne devient ainsi le relais des puissances européennes en Orient.</h5>
+
+    <label for="separateur">Que voules-vous remplacer ? (exemple: espace, virgule, point...) :</label>
+    <input type="text" id="separateur" placeholder="Par défaut : espace"><br><br>
+    <label for="separateur-sortie">Par quoi voulez-vous remplacer ? (ex: |, -, /, espace...) :</label>
+    <input type="text" id="separateur-sortie" placeholder="Par défaut : |"><br><br>
+    <button onclick="segmenterTexte()">Segmenter le texte</button>
+    <button onclick="genererDictionnaire()">Créer un dictionnaire de fréquence</button>
+
     <p>Résultat :</p>
     <p id="resultat-segmentation"></p>
 
+    <div id="tableau-frequence"></div>
+
     <script src="Assets/js/script.js"></script>
-    <script>
-        function segmenterTexte() {
-            const input = document.getElementById("text-input").value;
-            const tokens = input.trim().split(/\s+/);
-            const resultat = tokens.join(", ");
-            document.getElementById("resultat-segmentation").textContent = resultat;
-        }
-    </script>
 </body>
 </html>
