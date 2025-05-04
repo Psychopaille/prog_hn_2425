@@ -1,126 +1,249 @@
+/* Règles globales pour le corps de la page */
 body {
+    /* Définit la police principale du document */
     font-family: Arial, sans-serif;
+    /* Couleur de fond légère */
     background-color: #f4f4f4;
+    /* Annule les marges par défaut du navigateur */
     margin: 0;
+    /* Annule le padding par défaut du navigateur */
     padding: 0;
+    /* Centre le texte dans tout le document */
     text-align: center;
 }
+
+/* Style de l'en-tête (header) */
 header {
+    /* Couleur de fond bleu foncé */
     background-color: #002147;
+    /* Espace intérieur de 20px */
     padding: 20px;
 }
+
+/* Images contenues dans l'en-tête */
 header img {
+    /* Largeur fixe à 250px */
     width: 250px;
+    /* Hauteur automatique pour conserver les proportions */
     height: auto;
 }
+
+/* Conteneur de présentation personnelle */
 .presentation {
+    /* Utilisation d'un flexbox vertical */
     display: flex;
+    /* Orientation des éléments en colonne */
     flex-direction: column;
+    /* Centrage horizontal des éléments */
     align-items: center;
+    /* Espace de 10px entre les éléments */
     gap: 10px;
+    /* Marge verticale de 20px */
     margin: 20px 0;
 }
+
+/* Images dans la section de présentation */
 .presentation img {
+    /* Largeur maximale à 200px */
     max-width: 200px;
+    /* Hauteur automatique pour conserver les proportions */
     height: auto;
+    /* Coins arrondis de 15px */
     border-radius: 15px;
+    /* Ombre légère autour de l'image */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Style des titres de niveau 1 */
 h1 {
+    /* Couleur bleu foncé assortie au header */
     color: #002147;
+    /* Pas de marge autour */
     margin: 0;
 }
+
+/* Style des titres de niveaux 2, 3 et 5 */
 h2, h3, h5 {
+    /* Couleur de texte gris foncé */
     color: #333;
 }
+
+/* Liste ordonnée pour les lectures */
 ol {
+    /* Puces numériques */
     list-style-type: decimal;
+    /* Alignement du texte à gauche */
     text-align: left;
+    /* Largeur maximale de 500px */
     max-width: 500px;
+    /* Centrage horizontal via marge automatique */
     margin: 0 auto;
+    /* Fond blanc pour contraster */
     background: white;
+    /* Padding interne de 40px */
     padding: 40px;
+    /* Coins fortement arrondis */
     border-radius: 30px;
+    /* Ombre légère autour du bloc */
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Style du tableau */
 table {
+    /* Largeur à 80% de la zone parent */
     width: 80%;
+    /* Centrage horizontal */
     margin: 20px auto;
+    /* Fusion des bordures pour un look net */
     border-collapse: collapse;
+    /* Fond blanc du tableau */
     background: white;
+    /* Ombre légère autour du tableau */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Cellules et en-têtes du tableau */
 th, td {
+    /* Bordure fine grise */
     border: 1px solid #ddd;
+    /* Padding interne de 10px */
     padding: 10px;
+    /* Centre le texte dans les cellules */
     text-align: center;
 }
+
+/* En-têtes du tableau */
 th {
+    /* Fond bleu foncé */
     background-color: #002147;
+    /* Texte en blanc */
     color: white;
 }
+
+/* Style des liens (boutons liens) */
 a {
+    /* Bloc en ligne pour le padding */
     display: inline-block;
+    /* Marge en haut de 10px */
     margin-top: 10px;
+    /* Padding interne horizontal et vertical */
     padding: 10px 20px;
+    /* Fond bleu foncé */
     background-color: #002147;
+    /* Texte en blanc */
     color: white;
+    /* Pas de soulignement */
     text-decoration: none;
+    /* Coins légèrement arrondis */
     border-radius: 5px;
 }
+
+/* Effet au survol sur les liens */
 a:hover {
+    /* Fond bleu plus clair au hover */
     background-color: #004080;
 }
+
+/* Titre de niveau 3 (répété pour s'assurer de la priorité) */
 h3 {
+    /* Texte gris foncé */
     color: #333;
 }
+
+/* Style des boutons */
 button {
+    /* Bloc en ligne pour le padding */
     display: inline-block;
+    /* Marges autour des boutons */
     margin: 10px 5px;
+    /* Padding interne */
     padding: 10px 20px;
+    /* Fond bleu foncé */
     background-color: #002147;
+    /* Texte en blanc */
     color: white;
+    /* Suppression du soulignement */
     text-decoration: none;
+    /* Coins arrondis */
     border-radius: 5px;
+    /* Pas de bordure */
     border: none;
+    /* Curseur pointer pour indiquer l'interactivité */
     cursor: pointer;
 }
+
+/* Effet au survol sur les boutons */
 button:hover {
+    /* Fond bleu plus clair au hover */
     background-color: #004080;
 }
+
+/* Zone de résultats pour segmentation, GREP et concordancier */
 #resultat-segmentation,
 #grep-resultats,
 #concorde-resultats {
+    /* Bordure grise claire */
     border: 1px solid #ccc;
+    /* Padding interne */
     padding: 10px;
+    /* Marge auto pour centrer */
     margin: 20px auto;
+    /* Support du retour à la ligne */
     white-space: pre-wrap;
+    /* Fond légèrement contrasté */
     background-color: #f9f9f9;
+    /* Police monospace pour alignement */
     font-family: monospace;
+    /* Hauteur minimale pour l'affichage */
     min-height: 60px;
+    /* Largeur max à 80% */
     max-width: 80%;
+    /* Alignement du texte à gauche */
     text-align: left;
+    /* Coins arrondis */
     border-radius: 10px;
+    /* Ombre légère */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Conteneur du tableau de fréquences */
 #tableau-frequence {
+    /* Marge auto pour centrer */
     margin: 30px auto;
+    /* Largeur max à 80% */
     max-width: 80%;
 }
+
+/* Tableau interne des fréquences */
 #table-freq {
+    /* Largeur à 100% du conteneur */
     width: 100%;
+    /* Fusion des bordures */
     border-collapse: collapse;
+    /* Marge en haut pour séparer */
     margin-top: 20px;
 }
+
+/* Cellules du tableau de fréquences */
 #table-freq th, #table-freq td {
+    /* Padding interne */
     padding: 10px;
+    /* Bordure grise */
     border: 1px solid #ccc;
+    /* Centre le texte */
     text-align: center;
 }
+
+/* En-têtes du tableau de fréquences */
 #table-freq th {
+    /* Fond bleu foncé */
     background-color: #002147;
+    /* Texte blanc */
     color: white;
 }
+
+/* Style des lignes paires pour alternance */
 #table-freq tr:nth-child(even) {
+    /* Fond gris clair pour les paires */
     background-color: #f2f2f2;
 }

@@ -1,18 +1,26 @@
 <!DOCTYPE html>
+<!-- Déclare que le document utilise la norme HTML5 -->
 <html lang="fr">
 <head>
+  <!-- Métadonnées et configuration de base -->
   <meta charset="UTF-8" />
+  <!-- Assure un rendu responsive sur mobile et tablettes -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rendus du cours d'humanité numérique</title>
+  <!-- Lien vers la feuille de style externe pour la mise en forme générale -->
   <link rel="stylesheet" href="Assets/css/style.css" />
+  <!-- Chargement de la bibliothèque Chart.js pour réaliser des graphiques dynamiques -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
-    <img src="Assets/image/USN.jpg" alt="USN.jpg" />
+    <!-- Logo de l'université Sorbonne Nouvelle -->
+    <img src="Assets/image/USN.jpg" alt="Logo de l'université Sorbonne Nouvelle" />
   </header>
 
   <div class="presentation">
-    <img src="Assets/image/paolo.jpg" alt="Photo Personelle" />
+    <!-- Affichage de la photo personnelle et du nom -->
+    <img src="Assets/image/paolo.jpg" alt="Photo de Paolo ABI ATMEH" />
     <h1>Paolo ABI ATMEH</h1>
   </div>
 
@@ -20,14 +28,16 @@
 
   <h3>Mes cinq dernières lectures</h3>
   <ol>
+    <!-- Liste des lectures, ordonnée pour refléter un classement ou une chronologie -->
     <li>Le Baron Perché d'Italo Calvino</li>
-    <li>L'intégrale V du Throne de Fer de George R. Martin</li>
-    <li>Nommer la Maladie : Modèle de représentation d'Anais Carnet et al.</li>
+    <li>L'intégrale V du Trône de Fer de George R. Martin</li>
+    <li>Nommer la Maladie : Modèle de représentation d'Anaïs Carnet et al.</li>
     <li>Les Liaisons Dangereuses de Choderlos de Laclos</li>
     <li>Hokusaï, le fou de dessin d'Henri-Alexis Baatsch</li>
   </ol>
 
   <h3>Lien vers le site de la Sorbonne Nouvelle</h3>
+  <!-- Lien externe ouvrant dans la même fenêtre ; on pourrait ajouter target="_blank" si besoin d'une nouvelle fenêtre -->
   <a href="http://www.univ-paris3.fr/">Site de l'université Sorbonne Nouvelle</a>
 
   <h3>Partie enseignement de mon CV sur les trois dernières années</h3>
@@ -55,40 +65,73 @@
   </table>
 
   <h2>Interactions</h2>
+  <!-- Boutons d'interaction simple : ils déclenchent des boîtes de dialogue via JavaScript -->
   <button id="ask-name">Comment vous appelez-vous ?</button>
   <button id="show-help">Afficher l'aide</button>
 
   <h2>Segmentation de texte</h2>
   <h4>Exemple de Texte à utiliser : Extrait du Chapitre III du livre intitulé "Histoire du Liban" de Xavier Baron</h4>
-    <h5>Débarrassée de la présence d'un émir à la tête de la Montagne libanaise, la Porte décrète l'administration directe et nomme gouverneur un officier croate, Umar Pacha. L'objectif du sultan est de ramener la Montagne libanaise à un statut de province ordinaire de l'Empire et d'en finir avec le régime d'autonomie. Usant de méthodes autoritaires, le nouveau gouverneur se fait rapidement des ennemis de toutes parts: les chrétiens à qui il veut imposer de nouveaux impôts, et les druzes dont il arrête les principaux chefs. Les ambassadeurs européens à Istanbul effectuent alors une démarche auprès de la Porte pour dénoncer les comportements d'Umar Pacha, puis demandent son rappel à la fin de l'été 1842. Les communautés de la Montagne ont dès lors, et de plus en plus nettement, leurs Etats protecteurs atti-trés: au grand déplaisir de l'Autriche, la France a renoué d'étroites relations avec les maronites rassemblés autour de leur patriarche ; la Russie s'impose comme protectrice des orthodoxes ; l'Angleterre, dépitée de ne pas avoir pu amener les maronites à s'éloigner de la France, a développé une relation étroite avec les druzes ; les sunnites sont les fidèles sujets du sultan. La Montagne devient ainsi le relais des puissances européennes en Orient.</h5>
-  <textarea id="text-input" rows="6" cols="60" placeholder="Entrez votre texte à segmenter ici..."></textarea><br />
-  <label for="separateur">Que voulez-vous remplacer ? (ex : espace, virgule...)</label>
-  <input type="text" id="separateur" placeholder="Par défaut : espace" /><br /><br />
-  <label for="separateur-sortie">Par quoi voulez-vous remplacer ? (ex : |, -, ...)</label>
-  <input type="text" id="separateur-sortie" placeholder="Par défaut : |" /><br /><br />
+  <!-- Zone de saisie libre pour l'utilisateur -->
+  <textarea id="text-input" rows="6" cols="60" placeholder="Entrez votre texte..."></textarea>
+  <br />
+  <label for="separateur">Que voulez-vous remplacer ? (ex : espace, virgule…)</label>
+  <input type="text" id="separateur" placeholder="Par défaut : espace" />
+  <br /><br />
+  <label for="separateur-sortie">Par quoi voulez-vous remplacer ? (ex : |, -…)</label>
+  <input type="text" id="separateur-sortie" placeholder="Par défaut : |" />
+  <br /><br />
 
+  <!-- Actions principales : segmentation et génération du dictionnaire -->
   <button onclick="segmenterTexte()">Segmenter le texte</button>
+  <!-- segmenterTexte() : fonction définie dans script.js. Elle récupère le contenu de #text-input, découpe le texte selon #separateur, puis réaffiche la version segmentée dans #resultat-segmentation -->
   <button onclick="genererDictionnaire()">Créer un dictionnaire de fréquence</button>
+  <!-- genererDictionnaire() : construit un objet de comptage des mots et génère un tableau HTML inséré dans #tableau-frequence -->
 
   <div style="margin-top: 40px;">
-    <h2>GREP – Recherche par motif</h2>
-    <input type="text" id="grep-input" placeholder="Entrez un motif (ex: ^ré, tion$)" />
+    <h2>GREP – Recherche par motif</h2>
+    <!-- Champ pour saisir une expression régulière et bouton pour déclencher la recherche -->
+    <input type="text" id="grep-input" placeholder="Entrez un motif (ex : ^ré, tion$)" />
     <button onclick="executerGrep()">Rechercher</button>
+    <!-- executerGrep() : exécute une recherche regex sur le texte source, affiche les correspondances dans #grep-resultats -->
     <p id="grep-resultats"></p>
   </div>
 
   <div style="margin-top: 40px;">
     <h2>Concordancier</h2>
-    <input type="text" id="concorde-input" placeholder="Entrez un mot exact (ex: libanaise)" />
+    <input type="text" id="concorde-input" placeholder="Entrez un mot exact (ex : libanaise)" />
     <button onclick="genererConcordancier()">Afficher les contextes</button>
+    <!-- genererConcordancier() : pour chaque occurrence exacte du mot, affiche la phrase ou le contexte autour dans #concorde-resultats -->
     <div id="concorde-resultats" style="text-align:left; max-width:80%; margin:20px auto; font-family:monospace;"></div>
   </div>
 
   <p>Résultat de segmentation</p>
   <p id="resultat-segmentation"></p>
+
+  <h2>Analyse textuelle</h2>
+  <div id="text-stats">
+    <!-- Ces spans seront remplis par script.js après analyse : longueur minimale/maximale de mots et phrases -->
+    <p>Mot le plus court : <span id="shortest-word"></span></p>
+    <p>Mot le plus long : <span id="longest-word"></span></p>
+    <p>Phrase la plus courte : <span id="shortest-sentence"></span></p>
+    <p>Phrase la plus longue : <span id="longest-sentence"></span></p>
+  </div>
+
+  <h2>Analyse graphique</h2>
+  <!-- Chart.js utilise ces balises <canvas> pour dessiner les graphiques -->
+  <div style="max-width:400px; margin:40px auto;">
+    <canvas id="pieChart"></canvas>
+    <!-- pieChart : sera transformé en diagramme circulaire représentant les fréquences relatives des mots -->
+  </div>
+  <div style="max-width:400px; margin:40px auto;">
+    <canvas id="zipfChart"></canvas>
+    <!-- zipfChart : affiche la courbe de distribution suivant la loi de Zipf, générée par Chart.js -->
+  </div>
+
   <p>Résultat du dictionnaire</p>
+  <!-- Conteneur dynamique dans lequel script.js injecte un tableau de fréquences triées -->
   <div id="tableau-frequence"></div>
 
+  <!-- Inclusion du script JavaScript principal où sont définies toutes les fonctions précédemment référencées -->
   <script src="Assets/js/script.js"></script>
 </body>
 </html>
